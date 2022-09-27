@@ -6,8 +6,8 @@ pragma solidity >=0.7.0 <0.9.0;
 contract Lottery {
     uint256 public constant ticketPrice = 0.01 ether;
     uint256 public constant maxTickets = 100; // maximum tickets per lottery
-    uint256 public constant ticketCommission = 0.001 ether; // commition per ticket
-    uint256 public constant duration = 30 minutes; // The duration set for the lottery
+    uint256 public constant ticketCommission = 0.001 ether; // commission per ticket
+    uint256 public constant duration = 480 minutes; // The duration set for the lottery
 
     uint256 public expiration; // Timeout in case That the lottery was not carried out.
     address public lotteryOperator; // the crator of the lottery
@@ -58,7 +58,7 @@ contract Lottery {
         );
         uint256 numOfTicketsToBuy = msg.value / ticketPrice;
 
-        require(
+        require( 
             numOfTicketsToBuy <= RemainingTickets(),
             "Not enough tickets available."
         );
